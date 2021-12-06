@@ -1,44 +1,29 @@
 pipeline:
-    name: nginx
-    identifier: nginx
-    projectIdentifier: GitExp
+    name: test
+    identifier: test
+    projectIdentifier: K8sDemo
     orgIdentifier: CSE
     tags: {}
     stages:
         - stage:
-              name: test-deploy
-              identifier: testdeploy
+              name: test
+              identifier: test
               description: ""
               type: Deployment
               spec:
                   serviceConfig:
-                      serviceRef: testnginx
+                      serviceRef: k8s
                       serviceDefinition:
                           type: Kubernetes
                           spec:
                               variables: []
-                              manifests:
-                                  - manifest:
-                                        identifier: kustomise
-                                        type: Kustomize
-                                        spec:
-                                            store:
-                                                type: Github
-                                                spec:
-                                                    connectorRef: account.NandeeshGithub
-                                                    gitFetchType: Branch
-                                                    folderPath: kustomize/helloWorld
-                                                    repoName: harness-docs
-                                                    branch: main
-                                            pluginPath: ""
-                                            skipResourceVersioning: false
                   infrastructure:
                       environmentRef: dev
                       infrastructureDefinition:
                           type: KubernetesDirect
                           spec:
-                              connectorRef: account.k8s
-                              namespace: default
+                              connectorRef: k8s
+                              namespace: test
                               releaseName: release-<+INFRA_KEY>
                       allowSimultaneousDeployments: false
                   execution:
@@ -72,7 +57,6 @@ pipeline:
                                 type: K8sRollingRollback
                                 timeout: 10m
                                 spec: {}
-                  serviceDependencies: []
               tags: {}
               failureStrategies:
                   - onFailure:
