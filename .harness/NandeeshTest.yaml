@@ -38,7 +38,7 @@ pipeline:
                           type: KubernetesDirect
                           spec:
                               connectorRef: account.k8s
-                              namespace: default
+                              namespace: nandeesh
                               releaseName: release-<+INFRA_KEY>
                       allowSimultaneousDeployments: false
                   execution:
