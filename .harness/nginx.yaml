@@ -1,5 +1,5 @@
 pipeline:
-    name: Nandeesh
+    name: Nginx
     identifier: NandeeshTest
     projectIdentifier: Gittest
     orgIdentifier: CSE
