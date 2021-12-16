@@ -1,6 +1,6 @@
 pipeline:
     name: Nginx
-    identifier: NandeeshTest
+    identifier: Test
     projectIdentifier: Gittest
     orgIdentifier: CSE
     tags: {}
