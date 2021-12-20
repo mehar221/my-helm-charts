@@ -1,0 +1,22 @@
+connector:
+  name: Nandeesh_bitbucket
+  identifier: Nandeesh_bitbucket
+  description:
+  orgIdentifier: CSE
+  projectIdentifier: Gittest
+  type: Bitbucket
+  spec:
+    url: https://NandeeshGK10@bitbucket.org/nandeeshgk10/harness.git
+    authentication:
+      type: Http
+      spec:
+        type: UsernamePassword
+        spec:
+          username: Bitbucket
+          passwordRef: account.nandeeshgk10bitbucket
+    apiAccess:
+      type: UsernameToken
+      spec:
+        username: bitbucket
+        tokenRef: account.nandeeshgk10bitbucket
+    type: Repo
